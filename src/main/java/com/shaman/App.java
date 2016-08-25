@@ -1,9 +1,11 @@
 package com.shaman;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.regex.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+//import java.util.concurrent.TimeUnit;
 
 public class App 
 {
@@ -11,31 +13,29 @@ public class App
     	int cappass=0;
     	int capcargo=0;
     	Scanner sc = new Scanner (System.in);
-    	ArrayList<AerialVehicle> kolymaAL = new ArrayList<AerialVehicle>(); //создаем список самолетов колымских авиалиний
-    	//пассажирские
+    	ArrayList<AerialVehicle> kolymaAL = new ArrayList<AerialVehicle>(); //СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє СЃР°РјРѕР»РµС‚РѕРІ
+    	//РїР°СЃСЃР°Р¶РёСЂСЃРєРёРµ
     	kolymaAL.add (new PassPlane("Boeing", "737-700", 850, 4.3f, 26.02f, 149));
     	kolymaAL.add (new PassPlane("AirBus", "A320", 840, 4.46f, 23.86f, 180));
     	kolymaAL.add (new PassPlane("Boeing", "787-9", 910, 9.024f, 138.7f, 280));
     	kolymaAL.add (new PassPlane("Boeing", "757-300", 850, 6.781f, 43.4f, 279));
-    	kolymaAL.add (new PassPlane("Ильюшин", "ИЛ-96-300", 900, 15.3f, 150.4f, 300));
-    	kolymaAL.add (new PassPlane("Туполев", "Ту-154М", 850, 10.19f, 39.75f, 180));
-    	kolymaAL.add (new PassPlane("Сухой", "SSJ-95LR", 925, 3.576f, 15.805f, 98));
+    	kolymaAL.add (new PassPlane("РР»СЊСЋС€РёРЅ", "РР›-96-300", 900, 15.3f, 150.4f, 300));
+    	kolymaAL.add (new PassPlane("РўСѓРїРѕР»РµРІ", "РўСѓ-154Рњ", 850, 10.19f, 39.75f, 180));
+    	kolymaAL.add (new PassPlane("РЎСѓС…РѕР№", "SSJ-95LR", 925, 3.576f, 15.805f, 98));
     	kolymaAL.add (new PassPlane("AirBus", "A380", 925, 20.667f, 310.0f, 700));
     	kolymaAL.add (new PassPlane("Embraer", "E-195LR", 890, 4.07f, 16.25f, 118));
     	kolymaAL.add (new PassPlane("Bombardier", "CRJ-900LR", 830, 2.594f, 8.82f, 86));
-    	//грузовые
-    	kolymaAL.add (new CargoPlane("Ильюшин", "ИЛ-96-400Т", 830, 12.987f, 150.4f, 92));
-    	kolymaAL.add (new CargoPlane("Антонов", "Ан-225 Мрия", 850, 24.35f, 375.0f, 250));
+    	//РіСЂСѓР·РѕРІС‹Рµ
+    	kolymaAL.add (new CargoPlane("РР»СЊСЋС€РёРЅ", "РР›-96-400Рў", 830, 12.987f, 150.4f, 92));
+    	kolymaAL.add (new CargoPlane("РђРЅС‚РѕРЅРѕРІ", "РђРЅ-225 РњСЂРёСЏ", 850, 24.35f, 375.0f, 250));
     	kolymaAL.add (new CargoPlane("AirBus", "A300-600ST", 750, 13.22f, 68.75f, 69));
     	kolymaAL.add (new CargoPlane("Hughes", "H-4 Hercules", 408, 9.406f, 52.996f, 59));
     	kolymaAL.add (new PassPlane("Boeing", "747 LCF Dreamlifter", 878, 25.53f, 199.15f, 183));
-    	kolymaAL.add (new CargoPlane("Антонов", "Ан-22 Антей", 560, 24.42f, 127.62f, 105));
-    	//считаем общую вместимость для пассажирских
+    	kolymaAL.add (new CargoPlane("РђРЅС‚РѕРЅРѕРІ", "РђРЅ-22 РђРЅС‚РµР№", 560, 24.42f, 127.62f, 105));
+    	//СЃС‡РёС‚Р°РµРј РѕР±С‰СѓСЋ РІРјРµСЃС‚РёРјРѕСЃС‚СЊ РґР»СЏ РїР°СЃСЃР°Р¶РёСЂСЃРєРёС…
     	for (AerialVehicle av: kolymaAL) {
-    		//if (av.getTypeOfAE()== "Пассажирский") {
+    		//if (av.getTypeOfAE()== "РџР°СЃСЃР°Р¶РёСЂСЃРєРёР№") {
     		if (av instanceof PassPlane) {
-    			//PassPlane pp = (PassPlane) av;
-    			//cappass = cappass + pp.getSeating();
     			cappass = cappass + ((PassPlane) av).getSeating();
     		} else { 
     			if (av instanceof CargoPlane) {
@@ -43,8 +43,9 @@ public class App
     			}
     		}
     	}
-    	System.out.println("Общая вместимость пассажирских самолетов АК \"Колымские авиалинии\" \t" + cappass + " человек");
-    	System.out.println("Общая вместимость грузовых самолетов АК \"Колымские авиалинии\" \t" + capcargo + " тонн");
+    	System.out.println("РћР±С‰Р°СЏ РІРјРµСЃС‚РёРјРѕСЃС‚СЊ РїР°СЃСЃР°Р¶РёСЂСЃРєРёС… СЃР°РјРѕР»РµС‚РѕРІ РђРљ \"РљРѕР»С‹РјСЃРєРёРµ Р°РІРёР°Р»РёРЅРёРё\" \t" + cappass + " С‡РµР»РѕРІРµРє");
+    	System.out.println("РћР±С‰Р°СЏ РІРјРµСЃС‚РёРјРѕСЃС‚СЊ РіСЂСѓР·РѕРІС‹С… СЃР°РјРѕР»РµС‚РѕРІ РђРљ \"РљРѕР»С‹РјСЃРєРёРµ Р°РІРёР°Р»РёРЅРёРё\" \t" + capcargo + " С‚РѕРЅРЅ");
+    	System.out.println("РЎРѕСЂС‚РёСЂСѓРµРј СЃРїРёСЃРѕРє СЃР°РјРѕР»РµС‚РѕРІ РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РґР°Р»СЊРЅРѕСЃС‚Рё");
     	Collections.sort(kolymaAL, new Comparator<AerialVehicle>() {
     		//@Override
     		public int compare(AerialVehicle av1, AerialVehicle av2) {
@@ -54,54 +55,54 @@ public class App
     	int counter = 0;
     	for (AerialVehicle av: kolymaAL) {
     		counter++;
-    		System.out.println(counter + ". " + av.getManufacturer() + " " + av.getModel() + " - максимальная дальность полета - " + av.getMaxrange() + "км");
+    		System.out.println(counter + ". " + av.getManufacturer() + " " + av.getModel() + " - РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РїРѕР»РµС‚Р° - " + av.getMaxrange() + "РєРј");
     	}
     	int ii=0;
-    	System.out.println("Критерии поиска самолета:");
-    	System.out.println("1. максимальная дальность");
-    	System.out.println("2. расход топлива");
-    	System.out.println("3. крейсерская скорость");
+    	System.out.println("РљСЂРёС‚РµСЂРёРё РїРѕРёСЃРєР° СЃР°РјРѕР»РµС‚Р°:");
+    	System.out.println("1. РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ");
+    	System.out.println("2. СЂР°СЃС…РѕРґ С‚РѕРїР»РёРІР°");
+    	System.out.println("3. РєСЂРµР№СЃРµСЂСЃРєР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ");
     	if (sc.hasNextInt()){ 
         	ii = sc.nextInt(); 
         } else {
-        	System.out.println( "Вы ввели какую-то ерунду" ); //вывод сообщения об ошибке ввода
+        	System.out.println( "Р’С‹ РІРІРµР»Рё РєР°РєСѓСЋ-С‚Рѕ РµСЂСѓРЅРґСѓ" ); //РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєРµ РІРІРѕРґР°
         	//sc.close();
         	return;
         }
     	switch (ii) {
      	case 1: float minL;
      			float maxL;
-     			System.out.println("Введите минимальную величину в диапазоне (максимальная дальность, км)");
+     			System.out.println("Р’РІРµРґРёС‚Рµ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ, РєРј)");
      			minL = readNumFromConsole(); 
-     			System.out.println("Введите максимальную величину в диапазоне (максимальная дальность, км)");
+     			System.out.println("Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ, РєРј)");
      			maxL = readNumFromConsole(); 
      			for (AerialVehicle av: kolymaAL) {
      				if (av.getMaxrange()>= minL && av.getMaxrange()<= maxL ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - максимальная дальность полета - " + av.getMaxrange() + " км");
+     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РїРѕР»РµС‚Р° - " + av.getMaxrange() + " РєРј");
      				}
      			}
     			break;
     	case 2:	float minC;
 				float maxC;
-     			System.out.println("Введите минимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
+     			System.out.println("Р’РІРµРґРёС‚Рµ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (СЂР°СЃС…РѕРґ С‚РѕРїР»РёРІР°, С‚С‹СЃ.Р»./1000РєРј)");
      			minC = readNumFromConsole(); 
-    			System.out.println("Введите максимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
+    			System.out.println("Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (СЂР°СЃС…РѕРґ С‚РѕРїР»РёРІР°, С‚С‹СЃ.Р»./1000РєРј)");
     			maxC = readNumFromConsole(); 
     			for (AerialVehicle av: kolymaAL) {
      				if (av.getFcons()>= minC && av.getFcons()<= maxC ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - расход топлива - " + av.getFcons() + " тыс.л/1000 км");
+     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - СЂР°СЃС…РѕРґ С‚РѕРїР»РёРІР° - " + av.getFcons() + " С‚С‹СЃ.Р»/1000 РєРј");
      				}
      			}
     			break;
      	case 3:	float minS;
      			float maxS;
-     			System.out.println("Введите минимальную величину в диапазоне (крейсерская скорость,  км/ч)");
+     			System.out.println("Р’РІРµРґРёС‚Рµ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (РєСЂРµР№СЃРµСЂСЃРєР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ,  РєРј/С‡)");
      			minS = readNumFromConsole(); 
-				System.out.println("Введите максимальную величину в диапазоне (крейсерская скоростьб км/ч)");
+				System.out.println("Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РІ РґРёР°РїР°Р·РѕРЅРµ (РєСЂРµР№СЃРµСЂСЃРєР°СЏ СЃРєРѕСЂРѕСЃС‚СЊР± РєРј/С‡)");
 				maxS = readNumFromConsole(); 
 				for (AerialVehicle av: kolymaAL) {
      				if (av.getCspeed()>= minS && av.getCspeed()<= maxS ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " -  крейсерская скорость - " + av.getCspeed() + " км/час");
+     					System.out.println(av.getManufacturer() + " " + av.getModel() + " -  РєСЂРµР№СЃРµСЂСЃРєР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ - " + av.getCspeed() + " РєРј/С‡Р°СЃ");
      				}
      			}
 				break;
@@ -109,6 +110,7 @@ public class App
     	};
     	
     sc.close();
+    sortRandomLists();
     }
     
     public static float readNumFromConsole() {
@@ -124,5 +126,105 @@ public class App
      	    //scan1.close();
     	    return Float.parseFloat(str);
     }
-   
+    
+    public static String randstr (int n) {
+		String s ="";
+		String abd ="abcdefghijklmnopqrstuvwxyz0123456789";
+		int aL = abd.length();
+			while (s.length() < n) {
+				s+=abd.charAt((int)(Math.random() * aL));
+			}
+		return s;
+	} 
+    
+    public static void sortRandomLists() {
+    	class EObj {
+    		String str1;
+    		int int1;
+    		EObj (String s, int i){
+    			str1 = s;
+    			int1 = i;
+    		}
+    	}
+    	String tmpstr1, tmpstr2;
+    	int tmpint1, tmpint2;
+    	EObj eo11, eo22;
+    	
+    	ArrayList<EObj> alist = new ArrayList<EObj> ();
+    	LinkedList<EObj> blist = new LinkedList<EObj>();
+    	for (int j = 0;j < 100000; j++ ) {
+    		//tmpstr=randstr(10);
+    		//tmpint = (int)Math.random()*;
+    		EObj tmpeobj = new EObj (randstr(10), (int)(Math.random()*20000));
+    		alist.add(tmpeobj);	
+    		blist.add(tmpeobj);
+    	}
+    	//Р·Р°РїРёСЃРё РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РїРѕРёСЃРєР° РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё
+    	tmpstr1=alist.get(1).str1 ;
+    	tmpstr2=blist.getFirst().str1 ;
+    	eo11=alist.get(1);
+    	eo22=blist.getFirst();
+    	System.out.println("");
+    	
+    	System.out.println("РЎРѕСЂС‚РёСЂСѓРµРј ArrayList РѕР±СЉРµРјРѕРј " + alist.size() + " Р·Р°РїРёСЃРµР№ РїРѕ СЃС‚СЂРѕРєРѕРІРѕРјСѓ РїРѕР»СЋ");
+    	Long moment = System.currentTimeMillis();
+    	Collections.sort(alist, new Comparator<EObj>() {
+    		//@Override
+    		public int compare(EObj eo1, EObj eo2) {
+    			return eo1.str1.compareTo(eo2.str1);
+    		}
+    	});
+    	moment = System.currentTimeMillis() - moment;
+    	System.out.println("Р’СЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё - " + moment + "СЃРµРє*10-3");
+    	
+    	System.out.println("РЎРѕСЂС‚РёСЂСѓРµРј LinkedList РѕР±СЉРµРјРѕРј " + blist.size() + " Р·Р°РїРёСЃРµР№ РїРѕ СЃС‚СЂРѕРєРѕРІРѕРјСѓ РїРѕР»СЋ");
+    	moment = System.currentTimeMillis();
+    	Collections.sort(blist, new Comparator<EObj>() {
+    		//@Override
+    		public int compare(EObj eo1, EObj eo2) {
+    			return eo1.str1.compareTo(eo2.str1);
+    		}
+    	});
+    	moment = System.currentTimeMillis() - moment;
+    	System.out.println("Р’СЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё - " + moment + "СЃРµРє*10-3");
+    	
+    	System.out.println("РЎРѕСЂС‚РёСЂСѓРµРј ArrayList РѕР±СЉРµРјРѕРј " + alist.size() + " Р·Р°РїРёСЃРµР№ РїРѕ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕРјСѓ РїРѕР»СЋ");
+     	moment = System.currentTimeMillis();
+    	Collections.sort(alist, new Comparator<EObj>() {
+    		//@Override
+    		public int compare(EObj eo1, EObj eo2) {
+    			return Integer.compare(eo1.int1 , eo2.int1);
+    		}
+    	});
+    	moment = System.currentTimeMillis() - moment;
+    	System.out.println("Р’СЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё - " + moment+ "СЃРµРє*10-3");
+    	
+    	System.out.println("РЎРѕСЂС‚РёСЂСѓРµРј LinkedList РѕР±СЉРµРјРѕРј " + blist.size() + " Р·Р°РїРёСЃРµР№ РїРѕ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕРјСѓ РїРѕР»СЋ");
+    	moment = System.currentTimeMillis();
+    	Collections.sort(blist, new Comparator<EObj>() {
+    		//@Override
+    		public int compare(EObj eo1, EObj eo2) {
+    			return Integer.compare(eo1.int1 , eo2.int1);
+    		}
+    	});
+    	moment = System.currentTimeMillis() - moment;
+    	System.out.println("Р’СЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё - " + moment + "СЃРµРє*10-3");
+    	System.out.println("");
+    	System.out.println("Р’С‹РїРѕР»РЅСЏРµРј РґРѕР±Р°РІР»РµРЅРёРµ, РїРѕРёСЃРє, СѓРґР°Р»РµРЅРёРµ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РІ РєРѕР»Р»РµРєС†РёРё ArrayList");
+    	moment = System.currentTimeMillis();
+    	alist.add(new EObj("poiuytrewq", 189));
+    	System.out.println("РРЅРґРµРєСЃ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р° - " + alist.indexOf(eo11));
+    	alist.remove(eo11);
+    	System.out.println("Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёР№ - " + (System.currentTimeMillis() - moment) + "СЃРµРє*10-3");
+    	//TimeUnit.SECONDS.sleep(1);
+    	System.out.println("");
+    	System.out.println("Р’С‹РїРѕР»РЅСЏРµРј РґРѕР±Р°РІР»РµРЅРёРµ, РїРѕРёСЃРє, СѓРґР°Р»РµРЅРёРµ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РІ РєРѕР»Р»РµРєС†РёРё LinkedList");
+    	moment = System.currentTimeMillis();
+    	blist.add(new EObj("poiuytrewq", 189));
+    	System.out.println("РРЅРґРµРєСЃ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р° - " + blist.indexOf(eo11));
+    	blist.remove(eo11);
+    	System.out.println("Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёР№ - " + (System.currentTimeMillis() - moment) + "СЃРµРє*10-3");
+    
+    }
+    
 }
