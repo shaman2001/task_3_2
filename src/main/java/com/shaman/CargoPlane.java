@@ -1,10 +1,11 @@
 package com.shaman;
 
-public class CargoPlane extends AerialVehicle implements Flight{
-	private int carrying; //грузоподъемность, тн
-	private static final String TYPEOFAV = "Грузовой";
+public class CargoPlane extends Plane {
+	private int carrying; //РіСЂСѓР·РѕРїРѕРґСЉРµРјРЅРѕСЃС‚СЊ, С‚РЅ
 	
-
+	public CargoPlane () {
+		
+	}
 	public CargoPlane(String mf, String mod, int cs, float fc, float tc) {
 		super(mf, mod, cs, fc, tc);
 		// TODO Auto-generated constructor stub
@@ -13,34 +14,21 @@ public class CargoPlane extends AerialVehicle implements Flight{
 		super(mf, mod, cs, fc, tc);
 		this.carrying = cr;
 	}
-		
 	public int getCarrying () {
-		return  carrying;
+		return carrying;
+	}
+	public void setCarrying (int cr) {
+		this.carrying = cr;
 	}
 	
-	@Override
-	public float getMaxrange() {
-		return (this.getTcapacity()/this.getFcons()*1000);
-	}
-	@Override
-	public String getTypeOfAE() {
-		return TYPEOFAV;
-	}
-	//@Override
-	public void flightMessage() {
-		System.out.println("Всем приготовиться. Взлетаем");
-	};
-	//@Override
-	public void alertMessage() {
-		System.out.println("Внимание! Входим в зону турбулентности");
-	};
-	//@Override
-	public void fallMessage(){
-		System.out.println("Мы падаем! Всем надеть парашюты!");
-	};
-	//@Override
-	public void aircraftCapMessage(int height) {
-		System.out.println("Петров, какого хрена ты на высоте " + height + " метров ковыряешся в носу?");
-	};
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder("РіСЂСѓР·РѕРІРѕР№ ");
+		builder.append(super.toString());
+		builder.append(", РіСЂСѓР·РѕРїРѕРґСЉРµРјРЅРѕСЃС‚СЊ-");
+		builder.append(this.carrying);
+		builder.append(" С‚РЅ.");
+		return builder.toString();
+	}
 }

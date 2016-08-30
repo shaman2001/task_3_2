@@ -1,10 +1,11 @@
 package com.shaman;
 
-public class PassPlane extends AerialVehicle implements Flight{
-	private int seating; //пассажировместимость, чел
-	private static final String TYPEOFAV = "Пассажирский";
+public class PassPlane extends Plane {
+	private int seating; //РїР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ, С‡РµР»
 	
-
+	public PassPlane () {
+		
+	}
 	public PassPlane(String mf, String mod, int cs, float fc, float tc) {
 		super(mf, mod, cs, fc, tc);
 		// TODO Auto-generated constructor stub
@@ -17,31 +18,17 @@ public class PassPlane extends AerialVehicle implements Flight{
 	public int getSeating () {
 		return  seating;
 	}
-	
-	@Override
-	public float getMaxrange() {
-		return (this.getTcapacity()/this.getFcons()*1000);
+	public void setSeating (int st) {
+		this.seating = st;
 	}
 	@Override
-	public String getTypeOfAE() {
-		return TYPEOFAV;
+	public String toString() {
+		StringBuilder builder = new StringBuilder("РїР°СЃСЃР°Р¶РёСЂСЃРєРёР№ ");
+		builder.append(super.toString());
+		builder.append(", РїР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ-");
+		builder.append(this.seating);
+		builder.append(" РјРµСЃС‚");
+		return builder.toString();
 	}
-	
-	//@Override
-	public void flightMessage() {
-		System.out.println("Уважаемые пассажиры. Пристегните ремни. Взлетаем");
-	};
-	//@Override
-	public void alertMessage() {
-		System.out.println("Внимание! Самолет проходит грозовой фронт. Пристегните ремни");
-	};
-	//@Override
-	public void fallMessage(){
-		System.out.println("Всем капец! Мы падаем! Спасайся кто может!");
-	};
-	//@Override
-	public void aircraftCapMessage(int height) {
-		System.out.println("Уважаемые пассажиры. Наш полет проходит на высоте " + height + " метров");
-	};	
 	
 }

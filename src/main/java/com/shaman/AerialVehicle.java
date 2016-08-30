@@ -2,17 +2,21 @@ package com.shaman;
 
 public abstract class AerialVehicle {
 	
-	private String mfact; //производитель
-	private String model; //модель
-	private int cspeed; //крейсерская скорость, км/ч
-	private float fuelcons; //расход топлива, тыс.л/1000км
-	private float tcapacity; // емкость баков, тыс.л
-	AerialVehicle (String mf, String mod, int cs, float fc, float tc) {
+	protected String mfact; //РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ
+	protected String model; //РјРѕРґРµР»СЊ
+	protected boolean flying; //Р»РµС‚РёС‚?
+	
+	
+	public AerialVehicle () {
+		mfact = "default";
+		model = "default";	
+		flying = false;
+	}
+	public AerialVehicle (String mf, String mod) {
 		mfact = mf;
 		model = mod;
-		cspeed = cs;
-		fuelcons = fc;
-		tcapacity = tc;
+		flying = false;
+		
 	} 
 	public String getManufacturer () {
 		return  mfact;
@@ -26,23 +30,14 @@ public abstract class AerialVehicle {
 	public void setModel(String mod) {
 		this.model = mod;
 	}
-	
-	public int getCspeed () {
-		return  cspeed;
+	public boolean isFlying() {
+		return flying;
 	}
-	public float getFcons () {
-		return  fuelcons;
+	public void fly() {
+		if (!flying) flying = true; 
 	}
-	public void setFcons (float fc) {
-		this.fuelcons = fc;
+	public void land() {
+		if (flying) flying = false; 
 	}
-	public float getTcapacity () {
-		return  tcapacity;
-	}
-	public void setTcapacity (float tc) {
-		this.tcapacity = tc;
-	}
-	public abstract float getMaxrange () ; //дальность полета
-	public abstract String getTypeOfAE (); //возвращает тип летательного средства	
-	
+
 }

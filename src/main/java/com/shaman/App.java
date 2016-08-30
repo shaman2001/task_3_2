@@ -1,74 +1,76 @@
 package com.shaman;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.regex.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+//import com.shaman.AirCompany;
 //import java.util.concurrent.TimeUnit;
 
-public class App 
-{
+public class App {
+		
     public static void main( String[] args ) {
-    	int cappass=0;
-    	int capcargo=0;
+    	final int MRANGE = 1;
+    	final int FCONS = 2;
+    	final int CSPEED = 3;
+    	//final int PASS = 1;
+    	//final int CARGO = 2;
     	Scanner sc = new Scanner (System.in);
-    	ArrayList<AerialVehicle> kolymaAL = new ArrayList<AerialVehicle>(); //создаем список самолетов
-    	//пассажирские
-    	kolymaAL.add (new PassPlane("Boeing", "737-700", 850, 4.3f, 26.02f, 149));
-    	kolymaAL.add (new PassPlane("AirBus", "A320", 840, 4.46f, 23.86f, 180));
-    	kolymaAL.add (new PassPlane("Boeing", "787-9", 910, 9.024f, 138.7f, 280));
-    	kolymaAL.add (new PassPlane("Boeing", "757-300", 850, 6.781f, 43.4f, 279));
-    	kolymaAL.add (new PassPlane("Ильюшин", "ИЛ-96-300", 900, 15.3f, 150.4f, 300));
-    	kolymaAL.add (new PassPlane("Туполев", "Ту-154М", 850, 10.19f, 39.75f, 180));
-    	kolymaAL.add (new PassPlane("Сухой", "SSJ-95LR", 925, 3.576f, 15.805f, 98));
-    	kolymaAL.add (new PassPlane("AirBus", "A380", 925, 20.667f, 310.0f, 700));
-    	kolymaAL.add (new PassPlane("Embraer", "E-195LR", 890, 4.07f, 16.25f, 118));
-    	kolymaAL.add (new PassPlane("Bombardier", "CRJ-900LR", 830, 2.594f, 8.82f, 86));
+    	AirCompany kolymaAL = new AirCompany("АвиаКолыма");
+     	/*//пассажирские
+    	kolymaAL.addPlane (new PassPlane("Boeing", "737-700", 850, 4.3f, 26.02f, 149));
+    	kolymaAL.addPlane (new PassPlane("AirBus", "A320", 840, 4.46f, 23.86f, 180));
+    	kolymaAL.addPlane (new PassPlane("Boeing", "787-9", 910, 9.024f, 138.7f, 280));
+    	kolymaAL.addPlane (new PassPlane("Boeing", "757-300", 850, 6.781f, 43.4f, 279));
+    	kolymaAL.addPlane (new PassPlane("Ильюшин", "ИЛ-96-300", 900, 15.3f, 150.4f, 300));
+    	kolymaAL.addPlane (new PassPlane("Туполев", "Ту-154М", 850, 10.19f, 39.75f, 180));
+    	kolymaAL.addPlane (new PassPlane("Сухой", "SSJ-95LR", 925, 3.576f, 15.805f, 98));
+    	kolymaAL.addPlane (new PassPlane("AirBus", "A380", 925, 20.667f, 310.0f, 700));
+    	kolymaAL.addPlane (new PassPlane("Embraer", "E-195LR", 890, 4.07f, 16.25f, 118));
+    	kolymaAL.addPlane (new PassPlane("Bombardier", "CRJ-900LR", 830, 2.594f, 8.82f, 86));
     	//грузовые
-    	kolymaAL.add (new CargoPlane("Ильюшин", "ИЛ-96-400Т", 830, 12.987f, 150.4f, 92));
-    	kolymaAL.add (new CargoPlane("Антонов", "Ан-225 Мрия", 850, 24.35f, 375.0f, 250));
-    	kolymaAL.add (new CargoPlane("AirBus", "A300-600ST", 750, 13.22f, 68.75f, 69));
-    	kolymaAL.add (new CargoPlane("Hughes", "H-4 Hercules", 408, 9.406f, 52.996f, 59));
-    	kolymaAL.add (new PassPlane("Boeing", "747 LCF Dreamlifter", 878, 25.53f, 199.15f, 183));
-    	kolymaAL.add (new CargoPlane("Антонов", "Ан-22 Антей", 560, 24.42f, 127.62f, 105));
+    	kolymaAL.addPlane (new CargoPlane("Ильюшин", "ИЛ-96-400Т", 830, 12.987f, 150.4f, 92));
+    	kolymaAL.addPlane (new CargoPlane("Антонов", "Ан-225 Мрия", 850, 24.35f, 375.0f, 250));
+    	kolymaAL.addPlane (new CargoPlane("AirBus", "A300-600ST", 750, 13.22f, 68.75f, 69));
+    	kolymaAL.addPlane (new CargoPlane("Hughes", "H-4 Hercules", 408, 9.406f, 52.996f, 59));
+    	kolymaAL.addPlane (new PassPlane("Boeing", "747 LCF Dreamlifter", 878, 25.53f, 199.15f, 183));
+    	kolymaAL.addPlane (new CargoPlane("Антонов", "Ан-22 Антей", 560, 24.42f, 127.62f, 105));*/
     	//считаем общую вместимость для пассажирских
-    	for (AerialVehicle av: kolymaAL) {
-    		//if (av.getTypeOfAE()== "Пассажирский") {
-    		if (av instanceof PassPlane) {
-    			cappass = cappass + ((PassPlane) av).getSeating();
-    		} else { 
-    			if (av instanceof CargoPlane) {
-    				capcargo = capcargo + ((CargoPlane) av).getCarrying();
-    			}
-    		}
+    	kolymaAL.loadPlanesFromFS("files\\planes.txt");
+    	System.out.println("Общая вместимость пассажирских самолетов АК \"Колымские авиалинии\" \t" + kolymaAL.getTotalSeating() + " человек");
+    	System.out.println("Общая вместимость грузовых самолетов АК \"Колымские авиалинии\" \t" + kolymaAL.getTotalCarrying() + " тонн");
+    	try {
+	    	System.out.println("Сортируем список самолетов по крейсерской скорости");
+	    	kolymaAL.sortPlanesByCruiseSpeed();
+	    	System.out.println(kolymaAL.toString());
+	    	System.out.println("Для продолжения нажмите любую клавишу");
+	    	System.in.read();
+	    	System.out.println("Сортируем список самолетов по дальности полета");
+	    	kolymaAL.sortPlanesByMaxRange();
+	    	System.out.println(kolymaAL.toString());
+	    	System.out.println("Для продолжения нажмите любую клавишу");
+	    	System.in.read();
+	    	System.out.println("Сортируем список самолетов по расходу топлива на 1000 км");
+	    	kolymaAL.sortPlanesByFuelCons();
+	    	System.out.println(kolymaAL.toString());
+    	} catch (IOException e) {
+    		System.out.println(e);
     	}
-    	System.out.println("Общая вместимость пассажирских самолетов АК \"Колымские авиалинии\" \t" + cappass + " человек");
-    	System.out.println("Общая вместимость грузовых самолетов АК \"Колымские авиалинии\" \t" + capcargo + " тонн");
-    	System.out.println("Сортируем список самолетов по максимальной дальности");
-    	Collections.sort(kolymaAL, new Comparator<AerialVehicle>() {
-    		//@Override
-    		public int compare(AerialVehicle av1, AerialVehicle av2) {
-    			return Float.compare(av1.getMaxrange() , av2.getMaxrange() );
-    		}
-    	});
-    	int counter = 0;
-    	for (AerialVehicle av: kolymaAL) {
-    		counter++;
-    		System.out.println(counter + ". " + av.getManufacturer() + " " + av.getModel() + " - максимальная дальность полета - " + av.getMaxrange() + "км");
-    	}
-    	int ii=0;
-    	System.out.println("Критерии поиска самолета:");
+    	System.out.println("Введите критерий поиска самолета:");
     	System.out.println("1. максимальная дальность");
     	System.out.println("2. расход топлива");
     	System.out.println("3. крейсерская скорость");
-    	if (sc.hasNextInt()){ 
+    	int ii=0;
+    	/*if (sc.hasNextInt()){ 
         	ii = sc.nextInt(); 
         } else {
         	System.out.println( "Вы ввели какую-то ерунду" ); //вывод сообщения об ошибке ввода
         	//sc.close();
         	return;
-        }
+        }*/
+    	ii = (int)readNumFromConsole();
     	switch (ii) {
      	case 1: float minL;
      			float maxL;
@@ -76,11 +78,8 @@ public class App
      			minL = readNumFromConsole(); 
      			System.out.println("Введите максимальную величину в диапазоне (максимальная дальность, км)");
      			maxL = readNumFromConsole(); 
-     			for (AerialVehicle av: kolymaAL) {
-     				if (av.getMaxrange()>= minL && av.getMaxrange()<= maxL ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - максимальная дальность полета - " + av.getMaxrange() + " км");
-     				}
-     			}
+     			kolymaAL.filterPlanesByParam(MRANGE, minL, maxL);
+     			kolymaAL.toString();
     			break;
     	case 2:	float minC;
 				float maxC;
@@ -88,11 +87,8 @@ public class App
      			minC = readNumFromConsole(); 
     			System.out.println("Введите максимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
     			maxC = readNumFromConsole(); 
-    			for (AerialVehicle av: kolymaAL) {
-     				if (av.getFcons()>= minC && av.getFcons()<= maxC ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " - расход топлива - " + av.getFcons() + " тыс.л/1000 км");
-     				}
-     			}
+    			kolymaAL.filterPlanesByParam(FCONS, minC, maxC);
+     			kolymaAL.toString();
     			break;
      	case 3:	float minS;
      			float maxS;
@@ -100,17 +96,17 @@ public class App
      			minS = readNumFromConsole(); 
 				System.out.println("Введите максимальную величину в диапазоне (крейсерская скоростьб км/ч)");
 				maxS = readNumFromConsole(); 
-				for (AerialVehicle av: kolymaAL) {
-     				if (av.getCspeed()>= minS && av.getCspeed()<= maxS ) {
-     					System.out.println(av.getManufacturer() + " " + av.getModel() + " -  крейсерская скорость - " + av.getCspeed() + " км/час");
-     				}
-     			}
+				kolymaAL.filterPlanesByParam(CSPEED, minS, maxS);
+     			kolymaAL.toString();
 				break;
-    		
     	};
     	
+    Plane selectedPlane = kolymaAL.getPlanes().get((int)Math.round(Math.random()*kolymaAL.getPlanes().size()));
+    selectedPlane.takeoff("Москва", "Нью-Васюки", 5360);
+    selectedPlane.fly(11300);
+    selectedPlane.landing();
     sc.close();
-    sortRandomLists();
+    //sortRandomLists();
     }
     
     public static float readNumFromConsole() {
@@ -126,6 +122,7 @@ public class App
      	    //scan1.close();
     	    return Float.parseFloat(str);
     }
+    //вторая часть задания+++++++++++<<<<<<<<<<<<*****************>>>>>>>>>>>>>>>>>++++++++++++++++
     
     public static String randstr (int n) {
 		String s ="";
@@ -152,7 +149,7 @@ public class App
     	
     	ArrayList<EObj> alist = new ArrayList<EObj> ();
     	LinkedList<EObj> blist = new LinkedList<EObj>();
-    	for (int j = 0;j < 100000; j++ ) {
+    	for (int j = 0;j < 10000; j++ ) {
     		//tmpstr=randstr(10);
     		//tmpint = (int)Math.random()*;
     		EObj tmpeobj = new EObj (randstr(10), (int)(Math.random()*20000));
