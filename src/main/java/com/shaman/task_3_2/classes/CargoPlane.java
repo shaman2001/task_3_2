@@ -1,4 +1,4 @@
-package com.shaman;
+package com.shaman.task_3_2.classes;
 
 public class CargoPlane extends Plane {
 	private int carrying; //грузоподъемность, тн

@@ -1,4 +1,4 @@
-package com.shaman;
+package com.shaman.task_3_2.classes;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -12,10 +12,10 @@ public class AirCompany {
 	 final int PASS = 1;
 	 final int CARGO = 2;
 	
-	protected String name; //название компании
+	private String name; //название компании
 	//int passplanesnum; //количество пассажирских самолетов
 	//int cargoplanesnum; //количество грузовых самолетов
-	protected ArrayList<Plane> planes; //список самолетов компании
+	private ArrayList<Plane> planes; //список самолетов компании
 	
 	public AirCompany () {
 		this.name = "Default AirCompany";
@@ -90,7 +90,7 @@ public class AirCompany {
 		    	} else if (planetype==CARGO){
 		    		tmpPlane = new CargoPlane();
 		    	}*/
-		    	tmpPlane.setManufacturer(scan.next());
+		    	tmpPlane.setMfact(scan.next());
 		    	tmpPlane.setModel(scan.next());
 		    	tmpPlane.setCspeed(scan.nextInt());
 		    	tmpPlane.setFcons(scan.nextFloat());
@@ -188,14 +188,18 @@ public class AirCompany {
 			}
 		});
 	}
-	@Override
-	public String toString() {
+	//@Override
+	public String toString(ArrayList<Plane> list) {
 		StringBuilder builder = new StringBuilder("AirCompany ");
-		builder.append(getName());
-		builder.append("\n Спиок самолетов: \n");
-		for (Plane pl: planes) {
+		builder.append(this.getName());
+		builder.append("\nСпиок самолетов:\n");
+		int ii = 0;
+		for (Plane pl: list) {
+			ii++;
+			builder.append(ii);
+			builder.append(". ");
 			builder.append(pl.toString());
-			builder.append("\n");
+			builder.append("\n");   
 		}
 		return builder.toString();
 	}

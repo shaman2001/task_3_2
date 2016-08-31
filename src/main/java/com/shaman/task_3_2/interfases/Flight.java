@@ -1,4 +1,4 @@
-package com.shaman;
+package com.shaman.task_3_2.interfases;
 
 public interface Flight {
 	

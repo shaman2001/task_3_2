@@ -1,4 +1,6 @@
-package com.shaman;
+package com.shaman.task_3_2.classes;
+
+import java.lang.Thread;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,6 +8,7 @@ import java.util.regex.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+import com.shaman.task_3_2.service_funcs.*;
 //import com.shaman.AirCompany;
 //import java.util.concurrent.TimeUnit;
 
@@ -44,18 +47,17 @@ public class App {
     	try {
 	    	System.out.println("Сортируем список самолетов по крейсерской скорости");
 	    	kolymaAL.sortPlanesByCruiseSpeed();
-	    	System.out.println(kolymaAL.toString());
-	    	System.out.println("Для продолжения нажмите любую клавишу");
-	    	System.in.read();
+	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
+	    	Thread.sleep(2000);
 	    	System.out.println("Сортируем список самолетов по дальности полета");
 	    	kolymaAL.sortPlanesByMaxRange();
-	    	System.out.println(kolymaAL.toString());
-	    	System.out.println("Для продолжения нажмите любую клавишу");
-	    	System.in.read();
+	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
+	    	Thread.sleep(2000);
 	    	System.out.println("Сортируем список самолетов по расходу топлива на 1000 км");
 	    	kolymaAL.sortPlanesByFuelCons();
-	    	System.out.println(kolymaAL.toString());
-    	} catch (IOException e) {
+	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
+	    	Thread.sleep(2000);
+    	} catch (InterruptedException e) {
     		System.out.println(e);
     	}
     	System.out.println("Введите критерий поиска самолета:");
@@ -70,58 +72,43 @@ public class App {
         	//sc.close();
         	return;
         }*/
-    	ii = (int)readNumFromConsole();
+    	ii = (int)InputUtil.readNumFromConsole();
     	switch (ii) {
      	case 1: float minL;
      			float maxL;
      			System.out.println("Введите минимальную величину в диапазоне (максимальная дальность, км)");
-     			minL = readNumFromConsole(); 
+     			minL = InputUtil.readNumFromConsole();
      			System.out.println("Введите максимальную величину в диапазоне (максимальная дальность, км)");
-     			maxL = readNumFromConsole(); 
-     			kolymaAL.filterPlanesByParam(MRANGE, minL, maxL);
-     			kolymaAL.toString();
+     			maxL = InputUtil.readNumFromConsole();
+      			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(MRANGE, minL, maxL)));
     			break;
     	case 2:	float minC;
 				float maxC;
      			System.out.println("Введите минимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
-     			minC = readNumFromConsole(); 
+     			minC = InputUtil.readNumFromConsole();
     			System.out.println("Введите максимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
-    			maxC = readNumFromConsole(); 
-    			kolymaAL.filterPlanesByParam(FCONS, minC, maxC);
-     			kolymaAL.toString();
+    			maxC = InputUtil.readNumFromConsole();
+    			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(FCONS, minC, maxC)));
     			break;
      	case 3:	float minS;
      			float maxS;
      			System.out.println("Введите минимальную величину в диапазоне (крейсерская скорость,  км/ч)");
-     			minS = readNumFromConsole(); 
+     			minS = InputUtil.readNumFromConsole();
 				System.out.println("Введите максимальную величину в диапазоне (крейсерская скоростьб км/ч)");
-				maxS = readNumFromConsole(); 
-				kolymaAL.filterPlanesByParam(CSPEED, minS, maxS);
-     			kolymaAL.toString();
+				maxS = InputUtil.readNumFromConsole();
+				System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(CSPEED, minS, maxS)));
 				break;
     	};
-    	
+    System.out.println("Выполняем тестовый полет на случайном самолете");
     Plane selectedPlane = kolymaAL.getPlanes().get((int)Math.round(Math.random()*kolymaAL.getPlanes().size()));
     selectedPlane.takeoff("Москва", "Нью-Васюки", 5360);
     selectedPlane.fly(11300);
     selectedPlane.landing();
+    System.out.println("The game is over");
     sc.close();
     //sortRandomLists();
     }
-    
-    public static float readNumFromConsole() {
-    	 	Scanner scan1 = new Scanner(System.in);
-    	    String str = null;
-    	    Pattern p = Pattern.compile("^\\d+(?:\\.\\d+)?$");
-    	    Matcher m = null;
-     	    do
-    	    {
-    	        str = scan1.nextLine();
-    	        m = p.matcher(str);
-    	    } while(!m.matches());
-     	    //scan1.close();
-    	    return Float.parseFloat(str);
-    }
+       
     //вторая часть задания+++++++++++<<<<<<<<<<<<*****************>>>>>>>>>>>>>>>>>++++++++++++++++
     
     public static String randstr (int n) {

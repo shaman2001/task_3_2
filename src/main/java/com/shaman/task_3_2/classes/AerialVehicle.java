@@ -1,10 +1,10 @@
-package com.shaman;
+package com.shaman.task_3_2.classes;
 
 public abstract class AerialVehicle {
 	
-	protected String mfact; //производитель
-	protected String model; //модель
-	protected boolean flying; //летит?
+	private String mfact; //производитель
+	private String model; //модель
+	private boolean flying; //летит?
 	
 	
 	public AerialVehicle () {
@@ -18,10 +18,10 @@ public abstract class AerialVehicle {
 		flying = false;
 		
 	} 
-	public String getManufacturer () {
+	public String getMfact () {
 		return  mfact;
 	}
-	public void setManufacturer(String mf) {
+	public void setMfact(String mf) {
 		this.mfact = mf;
 	}
 	public String getModel () {

@@ -1,13 +1,15 @@
-package com.shaman;
+package com.shaman.task_3_2.classes;
 
 import java.lang.Thread;
 import java.util.concurrent.TimeUnit;
 
+import com.shaman.task_3_2.interfases.Flight;
+
 public class Plane extends AerialVehicle implements Flight {
-	protected int cspeed; //крейсерская скорость, км/ч
-	protected float fuelcons; //расход топлива, тыс.л/1000км
-	protected float tcapacity; // емкость топливных баков, тыс.л.
-	protected float fuelquantity; //количество топлива в баках, тыс. л.
+	private int cspeed; //крейсерская скорость, км/ч
+	private float fuelcons; //расход топлива, тыс.л/1000км
+	private float tcapacity; // емкость топливных баков, тыс.л.
+	private float fuelquantity; //количество топлива в баках, тыс. л.
 	public String depart; //откуда
 	public String dest; //пункт назначения
 	public float distance; //расстояние перелета
@@ -54,35 +56,35 @@ public class Plane extends AerialVehicle implements Flight {
 	
 	//@Override
 	public void takeoff(String dprt, String dst, float dist) { //dist в в километрах
-		if (this.flying) {
+		if (this.isFlying()) {
 			System.out.println("Самолет уже находится в воздухе");
 			return;
 		}
 		try {
-			System.out.println("Проверка систем самолета " + this.mfact + " " + this.model);
-			if (this.fuelquantity < this.fuelcons * dist / 1000) {
+			System.out.println("Проверка систем самолета " + this.getMfact() + " " + this.getModel());
+			if (this.getFquantity() < this.getFcons() * dist / 1000) {
 				System.out.println("Топлива в баках не хватит для выполнение перелета в " + dst);
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				float fvol = (this.fuelcons * dist / 1000) - this.fuelquantity;
 				System.out.printf("Необходимо заправить %.3f тыс. литров топлива \n", fvol);
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				refueling(fvol);
 			} else if (this.tcapacity < this.fuelcons * dist / 1000) {
 				System.out.println("Топлива в баках не хватит для выполнение перелета в " + dst + " без дозаправки");
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				System.out.println("Заправляем полные баки");
 				this.refueling(this.tcapacity - this.fuelquantity);
 			}
 			//Thread.sleep(1000);
 			TimeUnit.SECONDS.sleep(1);
 			System.out.println("Прогрев двигателей");
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			System.out.println("Взлет");
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			this.depart = dprt;
 			this.dest = dst;
 			this.distance = dist;
-			this.flying = true;
+			this.fly();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -91,37 +93,38 @@ public class Plane extends AerialVehicle implements Flight {
 	public void fly(int height) {
 		if (this instanceof PassPlane) {
 			StringBuilder tmpstr = new StringBuilder("Уважаемые пассажиры. Лайнер ");
-					tmpstr.append(this.mfact);
-					tmpstr.append(" ");
-					tmpstr.append(this.model);
-					tmpstr.append(" выполняет рейс по маршруту ");
-					tmpstr.append(this.depart);
-					tmpstr.append(" - ");
-					tmpstr.append(this.dest);
-					tmpstr.append(". Высота - ");
-					tmpstr.append(Integer.toString(height));
-					tmpstr.append(" метров. Время в пути - ");
-					tmpstr.append(String.format("%.1f", this.distance/this.cspeed));
-					tmpstr.append(" часов.");
+				tmpstr.append(this.getMfact());
+				tmpstr.append(" ");
+				tmpstr.append(this.getModel());
+				tmpstr.append(" выполняет рейс по маршруту ");
+				tmpstr.append(this.depart);
+				tmpstr.append(" - ");
+				tmpstr.append(this.dest);
+				tmpstr.append(". Высота - ");
+				tmpstr.append(Integer.toString(height));
+				tmpstr.append(" метров. Время в пути - ");
+				tmpstr.append(String.format("%.1f", this.distance/this.cspeed));
+				tmpstr.append(" часов.");
 			System.out.println(tmpstr.toString());
 		} else if (this instanceof CargoPlane) {
 			StringBuilder tmpstr = new StringBuilder("Диспетчерская, прием! Грузовой самолет ");
-			tmpstr.append(this.mfact);
-			tmpstr.append(this.model);
-			tmpstr.append(" выполняет рейс по маршруту ");
-			tmpstr.append(this.depart);
-			tmpstr.append(" - ");
-			tmpstr.append(this.dest);
-			tmpstr.append(". Высота - ");
-			tmpstr.append(Integer.toString(height));
-			tmpstr.append(" метров. Время в пути - ");
-			tmpstr.append(String.format("%.1f", this.distance/this.cspeed));
-			tmpstr.append(" часов.");
+				tmpstr.append(this.getMfact());
+				tmpstr.append(" ");
+				tmpstr.append(this.getModel());
+				tmpstr.append(" выполняет рейс по маршруту ");
+				tmpstr.append(this.depart);
+				tmpstr.append(" - ");
+				tmpstr.append(this.dest);
+				tmpstr.append(". Высота - ");
+				tmpstr.append(Integer.toString(height));
+				tmpstr.append(" метров. Время в пути - ");
+				tmpstr.append(String.format("%.1f", this.distance/this.cspeed));
+				tmpstr.append(" часов.");
 			System.out.println(tmpstr.toString());
 		}
 	}
 	public void refueling(float fuelQty) {
-		if (!this.flying) {
+		if (!this.isFlying()) {
 			if ((this.fuelquantity + fuelQty)<= this.tcapacity ) {
 				this.fuelquantity+=fuelQty;
 				System.out.println("Заправлено " + fuelQty + " тыс. литров топлива");
@@ -134,13 +137,14 @@ public class Plane extends AerialVehicle implements Flight {
 		}
 	}
 	public void landing() {
-		if (!this.flying) {
+		if (!this.isFlying()) {
 			System.out.println("Самолет находится находится на земле");
 			return;
 		}
 		try {
+			Thread.sleep(3000);
 			System.out.println("Начинаем снижение. Пристегните ремли!");
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			System.out.println("Наш самолет совершил посадку в аэтопорту города " + this.dest);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -149,13 +153,14 @@ public class Plane extends AerialVehicle implements Flight {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder("самолет ");
-		builder.append(getManufacturer());
+		builder.append(this.getMfact());
 		builder.append(" ");
-		builder.append(this.model);
+		builder.append(this.getModel());
 		builder.append(" кр.скорость-");
 		builder.append(this.cspeed);
-		builder.append(", макс.дальность-");
+		builder.append(" км/ч, макс.дальность-");
 		builder.append(getMaxrange());
+		builder.append(" км");
 		return builder.toString();
 	}
 }
