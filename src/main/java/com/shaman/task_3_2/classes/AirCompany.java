@@ -175,12 +175,22 @@ public class AirCompany {
 		} finally {
 			if (inputStream != null) {
 			inputStream.close();
+			}
 		}
 	}
-		
-		
-		
+	public boolean WriteACtoFile (String filepath)  {
+		try {
+	    	System.out.println("Пишем в файл список самолетов");
+	    	this.sortPlanesByMaxRange();
+	    	return OutPutUtil.outPutToFile(this, filepath); 
+	    		//System.out.println("Успешно");
+	    	
+	    } catch (IOException e) {
+	    	System.err.println(e);
+	    	return false;
+	    }
 	}
+	
 	/*public void outputPlanesToConsole(ArrayList<Plane> pl) {
 		for (Plane pl: planes) {
 			switch (outputData) {

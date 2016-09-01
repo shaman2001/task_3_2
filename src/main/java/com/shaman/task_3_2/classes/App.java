@@ -118,14 +118,11 @@ public class App {
 	    selectedPlane.landing();
 	    System.out.println("The game is over");
 	    if (sc!=null) sc.close();
-	    try {
-	    	System.out.println("Пишем в файл список самолетов");
-	    	kolymaAL.sortPlanesByMaxRange();
-	    	if (OutPutUtil.outPutToFile(kolymaAL, "files/kolyma.txt")) {
-	    		System.out.println("Успешно");
-	    	} 
-	    } catch (IOException e) {
-	    	System.err.println(e);
+	    //Пишем в файл
+	    if (kolymaAL.WriteACtoFile("files/kolyma.txt")) {
+	    	System.out.println("Успешно");
+	    } else {
+	    	System.out.println("Не удалось записать джанные в файл");
 	    }
 	    //sortRandomLists();
     }
