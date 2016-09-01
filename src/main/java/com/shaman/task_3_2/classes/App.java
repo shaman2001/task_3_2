@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 import com.shaman.task_3_2.service_funcs.*;
+import com.shaman.task_3_2.exceptions.*;
 //import com.shaman.AirCompany;
 //import java.util.concurrent.TimeUnit;
 
@@ -20,7 +21,6 @@ public class App {
     	final int CSPEED = 3;
     	//final int PASS = 1;
     	//final int CARGO = 2;
-    	Scanner sc = new Scanner (System.in);
     	AirCompany kolymaAL = new AirCompany("АвиаКолыма");
      	/*//пассажирские
     	kolymaAL.addPlane (new PassPlane("Boeing", "737-700", 850, 4.3f, 26.02f, 149));
@@ -41,77 +41,98 @@ public class App {
     	kolymaAL.addPlane (new PassPlane("Boeing", "747 LCF Dreamlifter", 878, 25.53f, 199.15f, 183));
     	kolymaAL.addPlane (new CargoPlane("Антонов", "Ан-22 Антей", 560, 24.42f, 127.62f, 105));*/
     	//считаем общую вместимость для пассажирских
-    	kolymaAL.loadPlanesFromFS("files\\planes.txt");
+    	try {
+	    	if (!kolymaAL.loadPlanesFromFile("files\\planes.txt")) {
+	    		throw new LoadPlanesFromFileException("Loading planes from file error!");
+	    	}
+    	} catch (LoadPlanesFromFileException e) {
+    		System.err.println(e.getMessage());
+    		return;
+    	} catch (IOException e) {
+    		System.err.println(e.getMessage());
+    		return;
+    	}
     	System.out.println("Общая вместимость пассажирских самолетов АК \"Колымские авиалинии\" \t" + kolymaAL.getTotalSeating() + " человек");
     	System.out.println("Общая вместимость грузовых самолетов АК \"Колымские авиалинии\" \t" + kolymaAL.getTotalCarrying() + " тонн");
     	try {
 	    	System.out.println("Сортируем список самолетов по крейсерской скорости");
 	    	kolymaAL.sortPlanesByCruiseSpeed();
 	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
-	    	Thread.sleep(2000);
+	    	Thread.sleep(1000);
 	    	System.out.println("Сортируем список самолетов по дальности полета");
 	    	kolymaAL.sortPlanesByMaxRange();
 	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
-	    	Thread.sleep(2000);
+	    	Thread.sleep(1000);
 	    	System.out.println("Сортируем список самолетов по расходу топлива на 1000 км");
 	    	kolymaAL.sortPlanesByFuelCons();
 	    	System.out.println(kolymaAL.toString(kolymaAL.getPlanes()));
-	    	Thread.sleep(2000);
+	    	Thread.sleep(1000);
     	} catch (InterruptedException e) {
-    		System.out.println(e);
+    		System.err.println(e);
     	}
     	System.out.println("Введите критерий поиска самолета:");
     	System.out.println("1. максимальная дальность");
     	System.out.println("2. расход топлива");
     	System.out.println("3. крейсерская скорость");
+    	Scanner sc = new Scanner (System.in);
     	int ii=0;
-    	/*if (sc.hasNextInt()){ 
-        	ii = sc.nextInt(); 
-        } else {
-        	System.out.println( "Вы ввели какую-то ерунду" ); //вывод сообщения об ошибке ввода
-        	//sc.close();
-        	return;
-        }*/
-    	ii = (int)InputUtil.readNumFromConsole();
-    	switch (ii) {
-     	case 1: float minL;
-     			float maxL;
-     			System.out.println("Введите минимальную величину в диапазоне (максимальная дальность, км)");
-     			minL = InputUtil.readNumFromConsole();
-     			System.out.println("Введите максимальную величину в диапазоне (максимальная дальность, км)");
-     			maxL = InputUtil.readNumFromConsole();
-      			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(MRANGE, minL, maxL)));
-    			break;
-    	case 2:	float minC;
-				float maxC;
-     			System.out.println("Введите минимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
-     			minC = InputUtil.readNumFromConsole();
-    			System.out.println("Введите максимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
-    			maxC = InputUtil.readNumFromConsole();
-    			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(FCONS, minC, maxC)));
-    			break;
-     	case 3:	float minS;
-     			float maxS;
-     			System.out.println("Введите минимальную величину в диапазоне (крейсерская скорость,  км/ч)");
-     			minS = InputUtil.readNumFromConsole();
-				System.out.println("Введите максимальную величину в диапазоне (крейсерская скоростьб км/ч)");
-				maxS = InputUtil.readNumFromConsole();
-				System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(CSPEED, minS, maxS)));
-				break;
-    	};
-    System.out.println("Выполняем тестовый полет на случайном самолете");
-    Plane selectedPlane = kolymaAL.getPlanes().get((int)Math.round(Math.random()*kolymaAL.getPlanes().size()));
-    selectedPlane.takeoff("Москва", "Нью-Васюки", 5360);
-    selectedPlane.fly(11300);
-    selectedPlane.landing();
-    System.out.println("The game is over");
-    sc.close();
-    //sortRandomLists();
+    	ii = (int)InputUtil.readNumFromConsole(sc);
+    	try {
+	    	switch (ii) {
+		     	case 1: float minL;
+		     			float maxL;
+		     			System.out.println("Введите минимальную величину в диапазоне (максимальная дальность, км)");
+		     			minL = InputUtil.readNumFromConsole(sc);
+		     			System.out.println("Введите максимальную величину в диапазоне (максимальная дальность, км)");
+		     			maxL = InputUtil.readNumFromConsole(sc);
+		      			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(MRANGE, minL, maxL)));
+		    			break;
+		    	case 2:	float minC;
+						float maxC;
+		     			System.out.println("Введите минимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
+		     			minC = InputUtil.readNumFromConsole(sc);
+		    			System.out.println("Введите максимальную величину в диапазоне (расход топлива, тыс.л./1000км)");
+		    			maxC = InputUtil.readNumFromConsole(sc);
+		    			System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(FCONS, minC, maxC)));
+		    			break;
+		     	case 3:	float minS;
+		     			float maxS;
+		     			System.out.println("Введите минимальную величину в диапазоне (крейсерская скорость,  км/ч)");
+		     			minS = InputUtil.readNumFromConsole(sc);
+						System.out.println("Введите максимальную величину в диапазоне (крейсерская скоростьб км/ч)");
+						maxS = InputUtil.readNumFromConsole(sc);
+						System.out.println(kolymaAL.toString(kolymaAL.filterPlanesByParam(CSPEED, minS, maxS)));
+						break;
+		     	default: {
+					throw new InvalidCaseSelectException("Не правильный выбор. ВВедите цифру от 1 до 3");
+				}
+    	
+	    	}
+    	} catch (InvalidCaseSelectException e) {
+    		System.out.println(e);
+    	}
+	    System.out.println("Выполняем тестовый полет на случайном самолете");
+	    Plane selectedPlane = kolymaAL.getPlanes().get((int)Math.round(Math.random()*kolymaAL.getPlanes().size()));
+	    selectedPlane.takeoff("Москва", "Нью-Васюки", 5360);
+	    selectedPlane.fly(11300);
+	    selectedPlane.landing();
+	    System.out.println("The game is over");
+	    if (sc!=null) sc.close();
+	    try {
+	    	System.out.println("Пишем в файл список самолетов");
+	    	kolymaAL.sortPlanesByMaxRange();
+	    	if (OutPutUtil.outPutToFile(kolymaAL, "files/kolyma.txt")) {
+	    		System.out.println("Успешно");
+	    	} 
+	    } catch (IOException e) {
+	    	System.err.println(e);
+	    }
+	    //sortRandomLists();
     }
        
     //вторая часть задания+++++++++++<<<<<<<<<<<<*****************>>>>>>>>>>>>>>>>>++++++++++++++++
     
-    public static String randstr (int n) {
+ /*   public static String randstr (int n) {
 		String s ="";
 		String abd ="abcdefghijklmnopqrstuvwxyz0123456789";
 		int aL = abd.length();
@@ -209,6 +230,5 @@ public class App {
     	blist.remove(eo11);
     	System.out.println("Время выполнения операций - " + (System.currentTimeMillis() - moment) + "сек*10-3");
     
-    }
-    
+    }*/
 }

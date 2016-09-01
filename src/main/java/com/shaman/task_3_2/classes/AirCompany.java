@@ -1,9 +1,19 @@
 package com.shaman.task_3_2.classes;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.util.InputMismatchException;
+//import java.io.BufferedReader;
+import java.io.LineNumberReader;
+import com.shaman.task_3_2.exceptions.*;
+import com.shaman.task_3_2.service_funcs.*;
+
+
 
 public class AirCompany {
 	 final int MRANGE = 1;
@@ -70,13 +80,15 @@ public class AirCompany {
 		}
 		return tmpList;
 	}
+		
 	public boolean loadPlanesFromFS (String filepath) {
 		try {
 			FileReader fr = new FileReader(filepath);
 			Scanner scan = new Scanner(fr);
 			Plane tmpPlane;
+			int planetype;
 			while (scan.hasNext()){
-				int planetype = scan.nextInt();
+				planetype = scan.nextInt();
 		    	switch (planetype) { 
 					case 2: tmpPlane = new CargoPlane();
 							break;
@@ -85,11 +97,6 @@ public class AirCompany {
 					default: tmpPlane = new CargoPlane(); 
 							break;
 		    	}
-		    	/*if (planetype==PASS){
-		    		tmpPlane = new PassPlane();
-		    	} else if (planetype==CARGO){
-		    		tmpPlane = new CargoPlane();
-		    	}*/
 		    	tmpPlane.setMfact(scan.next());
 		    	tmpPlane.setModel(scan.next());
 		    	tmpPlane.setCspeed(scan.nextInt());
@@ -107,13 +114,73 @@ public class AirCompany {
 		    	}
 				planes.add(tmpPlane);
 			}
+			if (scan!=null)scan.close();
+			if (fr!=null) fr.close();
 			return true;
 		} catch (IOException e) {
 			System.out.println(e);
 			return false;
 	   	} 
 	}
-
+	public boolean loadPlanesFromFile (String filepath) throws IOException {
+		LineNumberReader inputStream = null;
+		try {
+			inputStream = new LineNumberReader( new FileReader (filepath));
+			int planetype;
+			Plane tmpPlane;
+			String line;
+			while ((line = inputStream.readLine())!=null) {
+				switch (planetype = Integer.valueOf(line.trim())) { 
+					case 2: tmpPlane = new CargoPlane();
+							break;
+					case 1: tmpPlane = new PassPlane();
+							break;
+					default: throw new InvalidPlaneTypeException("Invalid Plane type in the input stream"); 
+				}
+				tmpPlane.setMfact(inputStream.readLine());
+		    	tmpPlane.setModel(inputStream.readLine());
+		    	tmpPlane.setCspeed(Integer.valueOf(inputStream.readLine().trim()));
+		    	
+		    	tmpPlane.setFcons(InputUtil.toFloat(inputStream.readLine().trim()));
+		    	tmpPlane.setTcapacity(InputUtil.toFloat(inputStream.readLine().trim()));
+		    	switch (planetype) { 
+					case 1: {
+						((PassPlane)tmpPlane).setSeating(Integer.valueOf(inputStream.readLine().trim()));
+						break;
+					}
+					case 2: {
+						((CargoPlane)tmpPlane).setCarrying(Integer.valueOf(inputStream.readLine().trim()));
+						break;
+					}
+		    	}
+				planes.add(tmpPlane);
+				//inputStream.getLineNumber();
+			}
+			return true;
+		} catch (InvalidPlaneTypeException e) {
+			System.err.println(e.getMessage() + " line " + inputStream.getLineNumber() + " in file " + filepath);
+			return false;
+		} catch (FileNotFoundException e) {
+			System.err.println(e);
+			return false;
+		} catch (NumberFormatException e) {
+			System.err.println(e + " line " + inputStream.getLineNumber() + " in file " + filepath);
+			return false;
+		} catch (InputMismatchException e) {
+			System.err.println(e + " line " + inputStream.getLineNumber() + " in file " + filepath);
+			return false;
+		} catch (ParseException e) {
+			System.err.println(e.getMessage());
+			return false;
+		} finally {
+			if (inputStream != null) {
+			inputStream.close();
+		}
+	}
+		
+		
+		
+	}
 	/*public void outputPlanesToConsole(ArrayList<Plane> pl) {
 		for (Plane pl: planes) {
 			switch (outputData) {
