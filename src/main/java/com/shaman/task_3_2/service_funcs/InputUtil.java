@@ -1,11 +1,11 @@
 package com.shaman.task_3_2.service_funcs;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.text.NumberFormat;
 import java.text.ParseException;
 //import com.shaman.task_3_2.exceptions.*;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InputUtil {
 

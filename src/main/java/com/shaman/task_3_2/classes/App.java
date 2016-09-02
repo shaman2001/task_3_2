@@ -1,17 +1,18 @@
 package com.shaman.task_3_2.classes;
 
-import java.lang.Thread;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.regex.*;
-import java.util.Collections;
-import java.util.Comparator;
+//import java.util.ArrayList;
+//import java.util.LinkedList;
+//import java.util.regex.*;
+//import java.util.Collections;
+//import java.util.Comparator;
 import java.util.Scanner;
-import com.shaman.task_3_2.service_funcs.*;
-import com.shaman.task_3_2.exceptions.*;
+
 //import com.shaman.AirCompany;
 //import java.util.concurrent.TimeUnit;
+import com.shaman.task_3_2.exceptions.InvalidCaseSelectException;
+import com.shaman.task_3_2.exceptions.LoadPlanesFromFileException;
+import com.shaman.task_3_2.service_funcs.InputUtil;
 
 public class App {
 		
@@ -42,8 +43,9 @@ public class App {
     	kolymaAL.addPlane (new CargoPlane("Антонов", "Ан-22 Антей", 560, 24.42f, 127.62f, 105));*/
     	//считаем общую вместимость для пассажирских
     	try {
-	    	if (!kolymaAL.loadPlanesFromFile("files\\planes.txt")) {
-	    		throw new LoadPlanesFromFileException("Loading planes from file error!");
+	    	//if (!kolymaAL.loadPlanesFromFile("files\\planes.txt")) {
+    		if (!kolymaAL.loadPlanesFromDB()) {
+	    		throw new LoadPlanesFromFileException("Loading planes from DB error!");
 	    	}
     	} catch (LoadPlanesFromFileException e) {
     		System.err.println(e.getMessage());
@@ -122,7 +124,7 @@ public class App {
 	    if (kolymaAL.WriteACtoFile("files/kolyma.txt")) {
 	    	System.out.println("Успешно");
 	    } else {
-	    	System.out.println("Не удалось записать джанные в файл");
+	    	System.out.println("Не удалось записать данные в файл");
 	    }
 	    //sortRandomLists();
     }

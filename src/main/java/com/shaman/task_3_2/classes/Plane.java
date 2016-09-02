@@ -1,6 +1,5 @@
 package com.shaman.task_3_2.classes;
 
-import java.lang.Thread;
 import java.util.concurrent.TimeUnit;
 
 import com.shaman.task_3_2.interfases.Flight;

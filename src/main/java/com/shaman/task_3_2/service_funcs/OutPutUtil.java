@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.shaman.task_3_2.classes.*;
+import com.shaman.task_3_2.classes.AirCompany;
 
 public class OutPutUtil {
 

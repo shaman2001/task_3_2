@@ -1,17 +1,25 @@
 package com.shaman.task_3_2.classes;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.text.ParseException;
-import java.util.InputMismatchException;
 //import java.io.BufferedReader;
 import java.io.LineNumberReader;
-import com.shaman.task_3_2.exceptions.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import com.shaman.task_3_2.exceptions.InvalidPlaneTypeException;
 import com.shaman.task_3_2.service_funcs.*;
+//import com.shaman.task_3_2.service_funcs.OutPutUtil;
+import com.shaman.task_3_2.service_funcs.DBDataLoader;
 
 
 
@@ -177,6 +185,67 @@ public class AirCompany {
 			inputStream.close();
 			}
 		}
+	}
+	public boolean loadPlanesFromDB() {
+		final String dbURL = "jdbc:derby:E:\\vovan\\DerbyDB\\AirCompany";
+	    final String tableName = "Planes";
+		try {
+        	Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+            //Get a connection
+        	Connection conn = DriverManager.getConnection(dbURL); 
+			Statement st1 = conn.createStatement();
+			ResultSet results = st1.executeQuery("select * from " + tableName);
+			Plane tmpPlane;
+			int planetype;
+			while(results.next()) {
+				switch (planetype = results.getInt(1)) { 
+					case 2: tmpPlane = new CargoPlane();
+							break;
+					case 1: tmpPlane = new PassPlane();
+							break;
+						default: throw new InvalidPlaneTypeException("Invalid Plane type in DataBase"); 
+			        }
+				tmpPlane.setMfact(results.getString(2));
+				tmpPlane.setModel(results.getString(3));
+				tmpPlane.setCspeed(results.getInt(4));
+				tmpPlane.setFcons(results.getFloat(5));
+				tmpPlane.setTcapacity(results.getFloat(6));
+				switch (planetype) { 
+					case 1: {
+						((PassPlane)tmpPlane).setSeating(results.getInt(6));
+						break;
+						}
+					case 2: {
+						((CargoPlane)tmpPlane).setCarrying(results.getInt(6));
+						break;
+						}
+		        	}
+				planes.add(tmpPlane);
+		        }
+			results.close();
+		    if (st1 != null)  st1.close();
+		    if (conn != null) {
+		    	//DriverManager.getConnection(dbURL + ";shutdown=true");
+		    	//DriverManager.
+		    	conn.close(); 
+		    }
+		    return true;
+		} catch (SQLException e) {
+			System.err.println(e);  
+			return false;
+		} catch (InvalidPlaneTypeException e) {
+			System.err.println(e + "Не верный тип самолета в базе");  
+			return false;
+		} catch (ClassNotFoundException e) {
+        	System.err.println(e);  
+        	return false;
+        } catch (InstantiationException e) {
+        	System.err.println(e);  
+        	return false;
+        } catch (IllegalAccessException e) {
+        	System.err.println(e); 
+        	return false;
+        } 
 	}
 	public boolean WriteACtoFile (String filepath)  {
 		try {
