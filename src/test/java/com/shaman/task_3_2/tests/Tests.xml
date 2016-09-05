@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Testing suite 1" parallel="methods" thread-count="2">
+  <test name="BasePassPlaneTest">
+  <parameter name = "model-name" value = "TU-160_BlackJack"></parameter>
+  <parameter name = "mfact-name" value = "Lockheed-Martin"></parameter>
+  <parameter name = "tcapas" value = "16.0f"></parameter>
+  <parameter name = "fuelqty" value = "3.0f"></parameter>
+    <classes>
+       <class name="com.shaman.task_3_2.tests.BasePassPlaneTest" />
+    </classes>
+  </test>
+ </suite>  	

@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Fri Sep 02 20:46:39 MSK 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0156-ec02-714d-00000175e060 
-on database directory E:\vovan\DerbyDB\AirCompany with class loader sun.misc.Launcher$ExtClassLoader@3b22cdd0 
+Sat Sep 03 21:59:37 MSK 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0156-f16b-9e87-000001776b98 
+on database directory E:\vovan\DerbyDB\AirCompany with class loader sun.misc.Launcher$ExtClassLoader@677327b6 
 Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_102/jre/lib/ext/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_102-b14

@@ -11,16 +11,20 @@ public class OutPutUtil {
 	public OutPutUtil() {
 		
 	}
-	public static boolean outPutToFile (AirCompany comp, String filepath)  throws IOException{
+	public static boolean outPutToFile (AirCompany comp, String filepath)  {
 		PrintWriter outFileStream = null;
-		boolean result = false;
+		//boolean result = false;
 		try {
 			outFileStream = new PrintWriter(new FileWriter(filepath));
 			outFileStream.print(comp.toString(comp.getPlanes()));
-			result = true;
+			System.out.println("Успешно");
+			//result = true;
+			return true;
+		} catch (IOException e) {
+			System.err.println(e);
+			return false;
 		} finally {
-			if (outFileStream!=null) outFileStream.close();
-			return result;
+			if (outFileStream!=null) {outFileStream.close();}
 		}
 	}
 	

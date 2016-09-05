@@ -46,7 +46,11 @@ public class Plane extends AerialVehicle implements Flight {
 		return fuelquantity;
 	}
 	public void setFquantity(float fq) {
-		this.fuelquantity = fq;
+		if (fq<=this.tcapacity) {
+			this.fuelquantity = fq;
+		} else {
+			this.fuelquantity = this.tcapacity;
+		}
 	}
 	 //возвращает максимальную дальность тыс.км.
 	public float getMaxrange () {

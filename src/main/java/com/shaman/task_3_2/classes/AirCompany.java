@@ -187,7 +187,16 @@ public class AirCompany {
 		}
 	}
 	public boolean loadPlanesFromDB() {
-		final String dbURL = "jdbc:derby:E:\\vovan\\DerbyDB\\AirCompany";
+		
+		DBDataLoader dbLoader = new DBDataLoader();
+		this.planes = dbLoader.readData();
+		if (this.planes!=null) {
+			return true;
+		} else {
+			return false;
+		}
+		
+		/*final String dbURL = "jdbc:derby:E:\\vovan\\DerbyDB\\AirCompany";
 	    final String tableName = "Planes";
 		try {
         	Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
@@ -245,41 +254,21 @@ public class AirCompany {
         } catch (IllegalAccessException e) {
         	System.err.println(e); 
         	return false;
-        } 
+        } */
 	}
 	public boolean WriteACtoFile (String filepath)  {
-		try {
+		//try {
 	    	System.out.println("Пишем в файл список самолетов");
 	    	this.sortPlanesByMaxRange();
 	    	return OutPutUtil.outPutToFile(this, filepath); 
 	    		//System.out.println("Успешно");
 	    	
-	    } catch (IOException e) {
-	    	System.err.println(e);
-	    	return false;
-	    }
+	   // } catch (IOException e) {
+	   // 	System.err.println(e);
+	  //  	return false;
+	   // }
 	}
 	
-	/*public void outputPlanesToConsole(ArrayList<Plane> pl) {
-		for (Plane pl: planes) {
-			switch (outputData) {
-				case PRINT_MRANGE: {
-					System.out.printf("%s %s - максимальная дальность полета - %f.1 км", pl.getManufacturer(), pl.getModel(), pl.getMaxrange());
-					break;
-					//System.out.println(av.getManufacturer() + " " + av.getModel() + " - максимальная дальность полета - " + av.getMaxrange() + " км");
-				}
-				case PRINT_FCONS: {
-					System.out.printf("%s %s - расход топлива - %f.1 тыс.л/1000 км", pl.getManufacturer(), pl.getModel(), pl.getFcons());
-					break;
-				}
-				case PRINT_CSPEED: {
-					System.out.printf("%s %s - крейсерская скорость - %f.1 км/ч", pl.getManufacturer(), pl.getModel(), pl.getFcons());
-					break;
-				}
-			}
-			
-		}
-	}*/
 	public int getPassPlanesNum() {
 		int i=0;
 		for (Plane pl: planes) {

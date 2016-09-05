@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <parameter name="tcapas" value="16.0f"/>
+  <parameter name="fuelqty" value="3.0f"/>
+  <parameter name="model-name" value="TU-160_BlackJack"/>
+  <parameter name="mfact-name" value="Lockheed-Martin"/>
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.shaman.task_3_2.tests.BasePassPlaneTest">
+        <methods>
+          <include name="refuelingTest"/>
+          <include name="setTcapacityTest"/>
+          <include name="setFquantityTest"/>
+          <include name="CreateObject"/>
+          <include name="getTcapacityTest"/>
+          <include name="getFquantityTest"/>
+        </methods>
+      </class> <!-- com.shaman.task_3_2.tests.BasePassPlaneTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>TestNG:  BasePassPlaneTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>BasePassPlaneTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>18/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Sep 04 21:12:00 MSK 2016</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (326 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.toStringTest()'><b>toStringTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: toString method test</td>
+<td><div><pre>java.lang.AssertionError: expected [пассажирский самолет Сухой SSJ-95LR кр.скорость-925 км/ч, макс.дальность-4419.743 км, пассажировместимость-98 мест] but found [пассажирский самолет Сухой SSJ-95LR кр.скорость-925 км/ч, макс.дальность-1638.6729 км, пассажировместимость-98 мест]
+	at com.shaman.task_3_2.tests.BasePassPlaneTest.toStringTest(BasePassPlaneTest.java:44)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace408471903", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace408471903'><pre>java.lang.AssertionError: expected [пассажирский самолет Сухой SSJ-95LR кр.скорость-925 км/ч, макс.дальность-4419.743 км, пассажировместимость-98 мест] but found [пассажирский самолет Сухой SSJ-95LR кр.скорость-925 км/ч, макс.дальность-1638.6729 км, пассажировместимость-98 мест]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at com.shaman.task_3_2.tests.BasePassPlaneTest.toStringTest(BasePassPlaneTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getCSpeedTest()'><b>getCSpeedTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getCSpeed  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getFconsTest()'><b>getFconsTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getFcons  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getFquantityTest()'><b>getFquantityTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getFquantity test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getMfactTest()'><b>getMfactTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getMfact  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getModelTest()'><b>getModelTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getModel  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getSeatingTest()'><b>getSeatingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getSeating test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.getTcapacityTest()'><b>getTcapacityTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: getTcapacity test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.refuelingTest()'><b>refuelingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: refuelling method test<br>Parameters: 3.0, 6.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.refuelingTest()'><b>refuelingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: refuelling method test<br>Parameters: 10.0, 13.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.refuelingTest()'><b>refuelingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: refuelling method test<br>Parameters: 15.0, 16.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.refuelingTest()'><b>refuelingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: refuelling method test<br>Parameters: 17.8, 16.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setCSpeedTest()'><b>setCSpeedTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setCSpeed  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setFconsTest()'><b>setFconsTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setFcons  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setFquantityTest()'><b>setFquantityTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setTFquantity<br>Parameters: 3.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setMfactTest()'><b>setMfactTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setMfact  test<br>Parameters: Lockheed-Martin</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setModelTest()'><b>setModelTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setModel  test<br>Parameters: TU-160_BlackJack</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setSeatingTest()'><b>setSeatingTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setSeating  test</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+<tr>
+<td title='com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest()'><b>setTcapacityTest</b><br>Test class: com.shaman.task_3_2.tests.BasePassPlaneTest<br>Test method: setTcapacity test<br>Parameters: 16.0</td>
+<td></td>
+<td>0</td>
+<td>com.shaman.task_3_2.tests.BasePassPlaneTest@28d25987</td></tr>
+</table><p>
+</body>
+</html>

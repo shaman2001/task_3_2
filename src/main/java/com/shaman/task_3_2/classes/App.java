@@ -108,7 +108,6 @@ public class App {
 		     	default: {
 					throw new InvalidCaseSelectException("Не правильный выбор. ВВедите цифру от 1 до 3");
 				}
-    	
 	    	}
     	} catch (InvalidCaseSelectException e) {
     		System.out.println(e);
@@ -121,11 +120,11 @@ public class App {
 	    System.out.println("The game is over");
 	    if (sc!=null) sc.close();
 	    //Пишем в файл
-	    if (kolymaAL.WriteACtoFile("files/kolyma.txt")) {
-	    	System.out.println("Успешно");
+	   kolymaAL.WriteACtoFile("files/kolyma.txt");
+	   /* 	System.out.println("Успешно");
 	    } else {
 	    	System.out.println("Не удалось записать данные в файл");
-	    }
+	    }*/
 	    //sortRandomLists();
     }
        

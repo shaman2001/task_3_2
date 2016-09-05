@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="19" passed="19">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="597" started-at="2016-09-04T18:21:05Z" finished-at="2016-09-04T18:21:05Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="597" started-at="2016-09-04T18:21:05Z" finished-at="2016-09-04T18:21:05Z">
+      <class name="com.shaman.task_3_2.tests.BasePassPlaneTest">
+        <test-method status="PASS" signature="createObject()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="createObject" is-config="true" duration-ms="223" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createObject -->
+        <test-method status="PASS" signature="getCSpeedTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getCSpeedTest" duration-ms="16" started-at="2016-09-04T21:21:05Z" description="getCSpeed  test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCSpeedTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="3" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="getFconsTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getFconsTest" duration-ms="4" started-at="2016-09-04T21:21:05Z" description="getFcons  test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFconsTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="getMfactTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getMfactTest" duration-ms="6" started-at="2016-09-04T21:21:05Z" description="getMfact  test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getMfactTest -->
+        <test-method status="PASS" signature="getModelTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getModelTest" duration-ms="4" started-at="2016-09-04T21:21:05Z" description="getModel  test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getModelTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="getSeatingTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getSeatingTest" duration-ms="2" started-at="2016-09-04T21:21:05Z" description="getSeating test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSeatingTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="getTcapacityTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getTcapacityTest" duration-ms="3" started-at="2016-09-04T21:21:05Z" description="getTcapacity test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTcapacityTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="toStringTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="toStringTest" duration-ms="3" started-at="2016-09-04T21:21:05Z" description="toString method test" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- toStringTest -->
+        <test-method status="PASS" signature="setCSpeedTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setCSpeedTest" duration-ms="2" started-at="2016-09-04T21:21:05Z" description="setCSpeed  test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getCSpeedTest" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setCSpeedTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="2" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setFconsTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setFconsTest" duration-ms="11" started-at="2016-09-04T21:21:05Z" description="setFcons  test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getFconsTest" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFconsTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setMfactTest(java.lang.String)[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setMfactTest" duration-ms="2" started-at="2016-09-04T21:21:05Z" description="setMfact  test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getMfactTest" finished-at="2016-09-04T21:21:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lockheed-Martin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setMfactTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setModelTest(java.lang.String)[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setModelTest" duration-ms="6" started-at="2016-09-04T21:21:05Z" description="setModel  test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getModelTest" finished-at="2016-09-04T21:21:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TU-160_BlackJack]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setModelTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setSeatingTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setSeatingTest" duration-ms="2" started-at="2016-09-04T21:21:05Z" description="setSeating  test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getSeatingTest" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setSeatingTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setTcapacityTest(float)[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setTcapacityTest" duration-ms="5" started-at="2016-09-04T21:21:05Z" description="setTcapacity test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getTcapacityTest" finished-at="2016-09-04T21:21:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[16.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setTcapacityTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="getFquantityTest()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="getFquantityTest" duration-ms="2" started-at="2016-09-04T21:21:05Z" description="getFquantity test" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFquantityTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="2" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method status="PASS" signature="setFquantityTest(float)[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="setFquantityTest" duration-ms="6" started-at="2016-09-04T21:21:05Z" description="setTFquantity" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.getFquantityTest, com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest" finished-at="2016-09-04T21:21:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFquantityTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="2" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method name="refuelingTest" signature="refuelingTest(float, float)[pri:1, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" status="PASS" duration-ms="2" finished-at="2016-09-04T21:21:05Z" started-at="2016-09-04T21:21:05Z" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest, com.shaman.task_3_2.tests.BasePassPlaneTest.setFquantityTest" data-provider="refuelingDP" description="refuelling method test">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3.0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refuelingTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="0" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method name="refuelingTest" signature="refuelingTest(float, float)[pri:1, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" status="PASS" duration-ms="5" finished-at="2016-09-04T21:21:05Z" started-at="2016-09-04T21:21:05Z" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest, com.shaman.task_3_2.tests.BasePassPlaneTest.setFquantityTest" data-provider="refuelingDP" description="refuelling method test">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[13.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refuelingTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method name="refuelingTest" signature="refuelingTest(float, float)[pri:1, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" status="PASS" duration-ms="5" finished-at="2016-09-04T21:21:05Z" started-at="2016-09-04T21:21:05Z" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest, com.shaman.task_3_2.tests.BasePassPlaneTest.setFquantityTest" data-provider="refuelingDP" description="refuelling method test">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15.0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[16.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refuelingTest -->
+        <test-method status="PASS" signature="timeChecking()[pri:0, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" name="timeChecking" is-config="true" duration-ms="1" started-at="2016-09-04T21:21:05Z" finished-at="2016-09-04T21:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- timeChecking -->
+        <test-method name="refuelingTest" signature="refuelingTest(float, float)[pri:1, instance:com.shaman.task_3_2.tests.BasePassPlaneTest@4501b7af]" status="PASS" duration-ms="11" finished-at="2016-09-04T21:21:05Z" started-at="2016-09-04T21:21:05Z" depends-on-methods="com.shaman.task_3_2.tests.BasePassPlaneTest.setTcapacityTest, com.shaman.task_3_2.tests.BasePassPlaneTest.setFquantityTest" data-provider="refuelingDP" description="refuelling method test">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[17.8]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[16.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refuelingTest -->
+      </class> <!-- com.shaman.task_3_2.tests.BasePassPlaneTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
